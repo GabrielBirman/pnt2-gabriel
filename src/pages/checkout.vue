@@ -22,6 +22,12 @@ const formData = ref({
 const nextStep = (newStep) => {
   step.value = newStep
 }
+
+const prevStep = () => {
+  if (step.value > 1) {
+    step.value--
+  }
+}
 </script>
 
 <template>
@@ -41,11 +47,11 @@ const nextStep = (newStep) => {
       </div>
       <div class="col-md-8 order-md-0">
         <CheckoutStep1 v-if="step === 1" :formData="formData" @next="nextStep" />
-        <CheckoutStep2 v-if="step === 2" :formData="formData" @next="nextStep" />
-        <CheckoutStep3 v-if="step === 3" :formData="formData" />
+        <CheckoutStep2 v-if="step === 2" :formData="formData" @next="nextStep" @prev="prevStep" />
+        <CheckoutStep3 v-if="step === 3" :formData="formData" @prev="prevStep" />
+        </div>
       </div>
     </div>
-  </div>
 </template>
 
 <style scoped>
