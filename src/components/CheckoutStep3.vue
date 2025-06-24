@@ -6,10 +6,18 @@
         Pago
       </h5>
       <paymentMethod />
+      <div class="d-flex justify-content-between mt-3">
+        <button type="button" class="btn btn-secondary" @click="handlePrev">Volver</button>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
 import paymentMethod from '@/components/paymentMethod.vue'
+const emit = defineEmits(['prev'])
+
+const handlePrev = () => {
+  emit('prev')
+}
 </script>

@@ -39,7 +39,10 @@
             <input type="text" class="form-control" id="pisoDepto" v-model="formData.pisoDepto">
           </div>
         </div>
-        <button type="submit" class="btn btn-primary mt-2">Continuar a Pago</button>
+        <div class="d-flex justify-content-between">
+          <button type="button" class="btn btn-secondary mt-2" @click="handlePrev">Volver</button>
+          <button type="submit" class="btn btn-primary mt-2">Continuar a Pago</button>
+        </div>
       </form>
     </div>
   </div>
@@ -48,7 +51,7 @@
 <script setup>
 import { patchDireccion } from '@/services/productService'
 const props = defineProps(['formData'])
-const emit = defineEmits(['next'])
+const emit = defineEmits(['next', 'prev'])
 const barriosCABA = ["Agronomía", "Almagro", "Balvanera", "Barracas", "Belgrano", "Boedo", "Caballito", "Chacarita", "Coghlan", "Colegiales", "Constitución", "Flores", "Floresta", "La Boca", "La Paternal", "Liniers", "Mataderos", "Monte Castro", "Monserrat", "Nueva Pompeya", "Núñez", "Palermo", "Parque Avellaneda", "Parque Chacabuco", "Parque Chas", "Parque Patricios", "Puerto Madero", "Recoleta", "Retiro", "Saavedra", "San Cristóbal", "San Nicolás", "San Telmo", "Versalles", "Villa Crespo", "Villa del Parque", "Villa Devoto", "Villa General Mitre", "Villa Lugano", "Villa Luro", "Villa Ortúzar", "Villa Pueyrredón", "Villa Real", "Villa Riachuelo", "Villa Santa Rita", "Villa Soldati", "Villa Urquiza", "Vélez Sarsfield"]
 const handleNext = async () => {
   if (props.formData.barrio && props.formData.calle && props.formData.altura) {
@@ -58,5 +61,9 @@ const handleNext = async () => {
   } else {
     alert('Por favor, completa todos los campos obligatorios de Domicilio y Entrega.')
   }
+}
+
+const handlePrev = () => {
+  emit('prev')
 }
 </script>
