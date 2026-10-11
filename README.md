@@ -2,6 +2,8 @@
 
 Aplicación web de farmacia online con tienda para clientes y panel de administración, hecha con **Vue 3**.
 
+El back-end está en [farmacia-online-api](https://github.com/GabrielBirman/farmacia-online-api).
+
 ## Funcionalidades
 
 ### Clientes
