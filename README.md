@@ -1,35 +1,45 @@
-# farmacity 24-7
+# Farmacity 24/7 💊
 
-This template should help get you started developing with Vue 3 in Vite.
+Aplicación web de farmacia online con tienda para clientes y panel de administración, hecha con **Vue 3**.
 
-## Recommended IDE Setup
+## Funcionalidades
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+### Clientes
+- Registro e inicio de sesión
+- Catálogo de medicamentos
+- Carrito de compras con estado persistente
+- Checkout en 4 pasos, con elección del método de pago
+- Perfil de usuario
 
-## Customize configuration
+### Administración
+- ABM de medicamentos
+- Gestión de usuarios
+- Seguimiento de pedidos por estado
+- **Dashboard de ventas** con gráficos: ventas por día, por día de la semana, productos con y sin receta, y mapa de calor de actividad
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+## Tecnologías
 
-## Project Setup
+- **Vue 3** + **Vite**
+- **Vue Router**, con rutas separadas para clientes y administradores
+- **Pinia** para el estado global (auth, carrito, productos), con persistencia
+- **Axios** para consumir APIs REST (simuladas con MockAPI)
+- **Chart.js** / vue-chartjs para los gráficos
+- **Tailwind CSS**
+
+## Estructura
+
+```
+src/
+├── components/    # Componentes reutilizables (cards, carrito, pasos del checkout, gráficos)
+├── pages/         # Vistas: Login, Home, Carrito, Checkout, Admin, Dashboard...
+├── store/         # Stores de Pinia: auth, carrito, product
+├── services/      # Llamadas a la API (usuarios y productos)
+└── composables/   # Lógica reutilizable
+```
+
+## Cómo correrlo
 
 ```sh
 npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
 npm run dev
 ```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-usuarios:
-https://www.mockachino.com/spaces/67b72957-8d8b-4d
-https://www.mockachino.com/67b72957-8d8b-4d/users
-
-transaction log:
-https://683656cf664e72d28e407eab.mockapi.io/:endpoint
